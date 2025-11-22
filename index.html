@@ -540,22 +540,20 @@
             btn.addEventListener('click', () => activateSection(btn.dataset.section));
         });
 
-        // Handle login
-        function handleLogin(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
+      function handleLogin(e) {
+    e.preventDefault();
 
-            if (username === 'SriRevanthRoshan' && password === '7') {
-                sessionStorage.setItem("auth", "true");
-                window.location.href = "/main-site/";
+    const username = document.getElementById('username').value.trim();
 
-                userLabel.textContent = username.toUpperCase();
-                activateSection('home');
-            } else {
-                alert('Invalid credentials. Please contact SR for access.');
-            }
-        }
+    // Always allow login, no matter what user enters
+    sessionStorage.setItem("auth", "true");
+
+    userLabel.textContent = username.toUpperCase();
+    activateSection('home');
+
+    window.location.href = "/main-site/";
+}
+
 
         // Close window
         function closeWindow() {
